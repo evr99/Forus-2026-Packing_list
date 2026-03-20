@@ -101,11 +101,3 @@ model_proto, _ = from_keras(
         ],
     output_path = onnx_save_path,
 )
-
-# Name: tensorflow-intel tensorflow
-# Version: 2.16.1 -> 2.17.0
-
-
-# img2table 1.4.2 requires pypdfium2==4.30.0, but you have pypdfium2 5.3.0 which is incompatible.
-# paddlepaddle 3.3.0 requires opt-einsum==3.3.0, but you have opt-einsum 3.4.0 which is incompatible.
-# streamlit-extras 0.7.8 requires protobuf>=5.27.3, but you have protobuf 3.20.3 which is incompatible.
