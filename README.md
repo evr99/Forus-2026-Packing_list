@@ -102,57 +102,32 @@ Verifica que el servidor está en línea y los modelos están cargados.
 ```json
 { "status": "ok" }
 ```
+
+#### `POST/process-pdf`
+
+Retorna un json en el siguiente formato, el cual será utilizado por el siguiente endpoint a describir.
+return {
+        "total_time": xx,
+        "class_page_list": xx,
+        "tables": xx
+    }
+
+#### `POST/process-json`
+Recibe un json del endpoint `/process-pdf`, el cual procesa y retorna bajo el formato.
 ```
 {
-  "SKU": [
-    "878667",
-    "7808774365287",
-    "7808774365263",
-    "7808774365240",
-    "7806774365256",
-    "7808774365270",
-    "7808774365232"
-  ],
-  "TotalCases": [
-    "23",
-    "3",
-    "7",
-    "13",
-    "7",
-    "4",
-    null
-  ],
-  "TotalPairs": [
-    "138",
-    "18",
-    "42",
-    "78",
-    "42",
-    "24",
-    "6"
-  ],
-  "Pairs/Case": [
-    "6",
-    "6",
-    "6",
-    "6",
-    "6",
-    "6",
-    "6"
-  ]
+  "SKU": [ xxx ],
+  "TotalCases": [ xxx ],
+  "TotalPairs": [ xxx ],
+  "Pairs/Case": [ xxx ]
 }
 ```
 ---
-
-#### `POST /process-pdf`
-
-Procesa el archivo PDF y retorna la clasificación de páginas y las tablas extraídas.
-
 **Request:**
 
 - `Content-Type: multipart/form-data`
-- Campo: `file` → archivo `.pdf`
-
+- Campo: `file` -> archivo `.pdf`
+- Campo: `brand` -> string de la marca a procesar (rockford, hp, crocs)
 **Respuesta:**
 ---
 
@@ -179,7 +154,7 @@ El OCR utilizado por defecto es **PaddleOCR v4** corriendo en CPU. Las opciones 
 
 ---
 
-## Categorías de clasificación
+## Categorías de clasificación del modelo .onnx
 
 | Código | Significado |
 |---|---|
